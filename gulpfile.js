@@ -17,7 +17,7 @@ gulp.task('scripts:server', () => {
 gulp.task(
     'watch:scripts:server', gulp.series(
         'scripts:server',
-        () => gulp.watch('./src-server/**/*.js', gulp.series('scripts: server'))));
+        () => gulp.watch('./src-server/**/*.js', gulp.series('scripts:server'))));
 
 gulp.task('watch:scripts:client', () => {
   const files = fs.readdirSync('./src-client');
@@ -30,8 +30,7 @@ gulp.task('watch:scripts:client', () => {
     initBundlerWatch(path.join('src-client', file))
   }
 
-  return gulp.watch('./src-client/**/*.js')
-             .on('change', initBundlerWatch)
+  return gulp.watch('./src-client/**/*.js').on('change', initBundlerWatch)
 });
 
 gulp.task('watch:scripts', gulp.parallel('watch:scripts:client', 'watch:scripts:server'));
