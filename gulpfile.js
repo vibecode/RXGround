@@ -5,10 +5,12 @@ const gulp = require('gulp'),
     watchify = require('watchify'),
     babelify = require('babelify'),
     path = require('path'),
-    fs = require('fs');
+    fs = require('fs'),
+    plumber = require('gulp-plumber');
 
 gulp.task('scripts:server', () => {
   return gulp.src('./src-server/**/*.js')
+             .pipe(plumber())
              .pipe($.cached('server'))
              .pipe($.babel())
              .pipe(gulp.dest('./build'));

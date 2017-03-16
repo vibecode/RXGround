@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "colour": "^0.7.1",
+    "gulp-plumber": "^1.1.0",
     "jquery": "^3.1.1",
     "lodash": "^4.17.4",
     "moment": "^2.17.1",
